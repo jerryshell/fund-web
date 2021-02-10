@@ -1,38 +1,17 @@
-.App {
-    text-align: center;
+@import "water.css";
+
+.info {
+    color: hsl(204, 86%, 53%);
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+.success {
+    color: hsl(141, 53%, 53%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.warning {
+    color: hsl(48, 100%, 67%);
 }
 
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.danger {
+    color: hsl(348, 100%, 61%);
 }
