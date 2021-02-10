@@ -1,6 +1,6 @@
 import './App.css'
 import React, { useState } from 'react'
-import Fund from './compoment/Fund'
+import Fund from './component/Fund'
 
 const App = () => {
   const [fundList, setFundList] = useState([
