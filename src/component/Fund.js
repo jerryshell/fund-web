@@ -10,26 +10,27 @@ const Fund = (props) => {
     axios.get(url).then(response => {
       console.log(response)
 
+      // setJerryIndex
       const jerryIndex = response.data
       setJerryIndex(jerryIndex)
 
-      if (jerryIndex <= -2) {
+      // setJerryIndexClassName
+      if (jerryIndex <= -5) {
         setJerryIndexClassName('success')
+      } else if (jerryIndex < 0) {
+        setJerryIndexClassName('info')
       } else if (jerryIndex >= 5) {
         setJerryIndexClassName('danger')
-      } else if (jerryIndex >= 2) {
+      } else if (jerryIndex >= 0) {
         setJerryIndexClassName('warning')
-      } else {
-        setJerryIndexClassName('info')
       }
+
     }).catch(e => {
       console.error(e)
     })
   }
 
-  useEffect(() => {
-    fetchJerryIndex()
-  }, [jerryIndex])
+  useEffect(fetchJerryIndex, [props.code])
 
   return (
     <div>
