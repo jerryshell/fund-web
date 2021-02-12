@@ -81,6 +81,9 @@ const App = () => {
           <th>
             删除
           </th>
+          <th>
+            查看详情
+          </th>
         </tr>
         </thead>
         <tbody>

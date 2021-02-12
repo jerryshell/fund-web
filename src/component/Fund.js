@@ -39,6 +39,10 @@ const Fund = (props) => {
     dispatch(actionCreator.removeFund(props.code))
   }
 
+  const handleDetailBtnClick = () => {
+    window.open(`https://fund.eastmoney.com/${props.code}.html`, '_blank')
+  }
+
   useEffect(fetchJerryIndex, [props.code])
 
   return (
@@ -51,6 +55,9 @@ const Fund = (props) => {
       </td>
       <td>
         <button onClick={handleRemoveBtnClick}>删除</button>
+      </td>
+      <td>
+        <button onClick={handleDetailBtnClick}>查看详情</button>
       </td>
     </tr>
   )
