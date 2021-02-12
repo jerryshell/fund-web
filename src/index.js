@@ -3,11 +3,22 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import { combineReducers, createStore } from 'redux'
+import { fundReducer } from './redux/fundReducer'
+import { Provider } from 'react-redux'
+
+const reducer = combineReducers({
+  fundList: fundReducer,
+})
+
+const store = createStore(reducer)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App/>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App/>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root'),
 )
 
