@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { actionCreator } from '../redux/actionCreator'
 
 const Fund = (props) => {
+  const dispatch = useDispatch()
+
   const [jerryIndex, setJerryIndex] = useState(0)
   const [jerryIndexClassName, setJerryIndexClassName] = useState('info')
 
@@ -30,6 +34,11 @@ const Fund = (props) => {
     })
   }
 
+  const handleRemoveBtnClick = () => {
+    console.log('handleRemoveBtnClick()')
+    dispatch(actionCreator.removeFund(props.code))
+  }
+
   useEffect(fetchJerryIndex, [props.code])
 
   return (
@@ -39,6 +48,9 @@ const Fund = (props) => {
       <td className={jerryIndexClassName}>{jerryIndex}</td>
       <td>
         <button onClick={fetchJerryIndex}>更新指标</button>
+      </td>
+      <td>
+        <button onClick={handleRemoveBtnClick}>删除</button>
       </td>
     </tr>
   )

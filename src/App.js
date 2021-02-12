@@ -78,6 +78,9 @@ const App = () => {
           <th>
             更新指标
           </th>
+          <th>
+            删除
+          </th>
         </tr>
         </thead>
         <tbody>

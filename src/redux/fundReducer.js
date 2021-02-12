@@ -99,6 +99,9 @@ export const fundReducer = (state = initState, action) => {
       }
       return state.concat(action.data)
     }
+    case actionType.removeFund: {
+      return state.filter(item => item.code !== action.data)
+    }
     default: {
       console.log('fundReducer default action', action)
       return state
