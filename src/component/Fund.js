@@ -33,34 +33,14 @@ const Fund = (props) => {
   useEffect(fetchJerryIndex, [props.code])
 
   return (
-    <div>
-      <table>
-        <thead>
-        <th>
-          <td>名称</td>
-        </th>
-        <th>
-          <td>代码</td>
-        </th>
-        <th>
-          <td>投资指标</td>
-        </th>
-        <th>
-          <td>更新指标</td>
-        </th>
-        </thead>
-        <tbody>
-        <tr>
-          <td>{props.name}</td>
-          <td>{props.code}</td>
-          <td className={jerryIndexClassName}>{jerryIndex}</td>
-          <td>
-            <button onClick={fetchJerryIndex}>更新指标</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
+    <tr>
+      <td>{props.name}</td>
+      <td>{props.code}</td>
+      <td className={jerryIndexClassName}>{jerryIndex}</td>
+      <td>
+        <button onClick={fetchJerryIndex}>更新指标</button>
+      </td>
+    </tr>
   )
 }
 
