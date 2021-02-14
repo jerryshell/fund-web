@@ -1,6 +1,13 @@
 import { actionType } from './actionType'
 
 export const actionCreator = {
+  setFundList: (fundList) => {
+    console.log('setFundList() fundList', fundList)
+    return {
+      type: actionType.setFundList,
+      data: fundList,
+    }
+  },
   addFund: (newFund) => {
     console.log('addFund() newFund', newFund)
     return {

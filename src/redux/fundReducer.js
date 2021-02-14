@@ -89,6 +89,11 @@ const initState = [
 
 export const fundReducer = (state = initState, action) => {
   switch (action.type) {
+    case actionType.setFundList: {
+      const newFundList = action.data
+      console.log('newFundList', newFundList)
+      return [...newFundList]
+    }
     case actionType.addFund: {
       const fundInState = state.find(item => item.code === action.data.code)
       console.log('fundInState', fundInState)
