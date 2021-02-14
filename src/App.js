@@ -3,6 +3,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import FundTable from './component/FundTable'
 import FundAdd from './component/FundAdd'
+import FundExport from './component/FundExport'
 
 const App = () => {
   const fundList = useSelector(store => store.fundList)
@@ -11,6 +12,7 @@ const App = () => {
     <div>
       <h1>公募基金短线投资指标</h1>
       <FundAdd/>
+      <FundExport/>
       <FundTable fundList={fundList}/>
     </div>
   )
