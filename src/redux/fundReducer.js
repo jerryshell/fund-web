@@ -85,6 +85,10 @@ const initState = [
     'name': '富国新动力灵活配置混合C',
     'code': '001510',
   },
+  {
+    'name': '东方红产业升级混合',
+    'code': '000619',
+  }
 ]
 
 export const fundReducer = (state = initState, action) => {
