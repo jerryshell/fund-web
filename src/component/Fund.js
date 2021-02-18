@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { actionCreator } from '../redux/actionCreator'
+import UpdateButtonIcon from './UpdateButtonIcon'
 
 const Fund = (props) => {
   const dispatch = useDispatch()
@@ -59,18 +60,7 @@ const Fund = (props) => {
           onClick={fetchJerryIndex}
           disabled={loading}
         >
-          <svg
-            width="1em"
-            height="1em"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              d="M1.75 16.002C3.353 20.098 7.338 23 12 23c6.075 0 11-4.925 11-11m-.75-4.002C20.649 3.901 16.663 1 12 1C5.925 1 1 5.925 1 12m8 4H1v8M23 0v8h-8"
-            />
-          </svg>
+          <UpdateButtonIcon loading={loading}/>
         </button>
       </td>
       <td>
