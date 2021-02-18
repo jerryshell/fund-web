@@ -8,8 +8,10 @@ const Fund = (props) => {
 
   const [jerryIndex, setJerryIndex] = useState(0)
   const [jerryIndexClassName, setJerryIndexClassName] = useState('info')
+  const [loading, setLoading] = useState(false)
 
   const fetchJerryIndex = () => {
+    setLoading(true)
     const url = `http://127.0.0.1:8080/fund/jerryIndex/fundCode/${props.code}`
     axios.get(url).then(response => {
       console.log(response)
@@ -31,6 +33,8 @@ const Fund = (props) => {
 
     }).catch(e => {
       console.error(e)
+    }).finally(() => {
+      setLoading(false)
     })
   }
 
@@ -51,7 +55,10 @@ const Fund = (props) => {
       <td>{props.code}</td>
       <td className={jerryIndexClassName}>{jerryIndex}</td>
       <td>
-        <button onClick={fetchJerryIndex}>
+        <button
+          onClick={fetchJerryIndex}
+          disabled={loading}
+        >
           <svg
             width="1em"
             height="1em"
