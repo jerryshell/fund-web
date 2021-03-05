@@ -15,11 +15,21 @@ export const actionCreator = {
       data: newFund,
     }
   },
-  removeFund: (fundCode) => {
-    console.log('removeFund() fundCode', fundCode)
+  removeFund: (code) => {
+    console.log('removeFund() code', code)
     return {
       type: actionType.removeFund,
-      data: fundCode,
+      data: code,
+    }
+  },
+  setJerryIndexByCode: (jerryIndex, code) => {
+    console.log('setJerryIndexByCode() jerryIndex', jerryIndex, 'code', code)
+    return {
+      type: actionType.setJerryIndexByCode,
+      data: {
+        jerryIndex,
+        code,
+      }
     }
   },
 }

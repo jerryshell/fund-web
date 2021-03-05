@@ -7,7 +7,6 @@ import UpdateButtonIcon from './UpdateButtonIcon'
 const Fund = (props) => {
   const dispatch = useDispatch()
 
-  const [jerryIndex, setJerryIndex] = useState(0)
   const [jerryIndexClassName, setJerryIndexClassName] = useState('info')
   const [loading, setLoading] = useState(false)
 
@@ -15,11 +14,11 @@ const Fund = (props) => {
     setLoading(true)
     const url = `http://127.0.0.1:8080/fund/jerryIndex/fundCode/${props.code}`
     axios.get(url).then(response => {
-      console.log(response)
+      console.log('fetchJerryIndex() response', response)
 
       // setJerryIndex
       const jerryIndex = response.data
-      setJerryIndex(jerryIndex)
+      dispatch(actionCreator.setJerryIndexByCode(jerryIndex, props.code))
 
       // setJerryIndexClassName
       if (jerryIndex <= -5) {
@@ -54,7 +53,7 @@ const Fund = (props) => {
     <tr>
       <td>{props.name}</td>
       <td>{props.code}</td>
-      <td className={jerryIndexClassName}>{jerryIndex}</td>
+      <td className={jerryIndexClassName}>{props.jerryIndex}</td>
       <td>
         <button
           onClick={fetchJerryIndex}

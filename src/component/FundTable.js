@@ -33,6 +33,7 @@ const FundTable = (props) => {
             key={fund.code}
             name={fund.name}
             code={fund.code}
+            jerryIndex={fund.jerryIndex}
           />
         ))
       }
