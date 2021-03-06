@@ -47,7 +47,7 @@ const Fund = (props) => {
     window.open(`https://fund.eastmoney.com/${props.code}.html`, '_blank')
   }
 
-  useEffect(fetchJerryIndex, [props.code])
+  useEffect(fetchJerryIndex, [dispatch, props.code])
 
   return (
     <tr>
