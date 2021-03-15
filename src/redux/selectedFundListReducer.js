@@ -1,7 +1,6 @@
 import { actionType } from './actionType'
 
-const initData = [
-]
+const initData = []
 
 export const selectedFundListReducer = (state = initData, action) => {
   switch (action.type) {
