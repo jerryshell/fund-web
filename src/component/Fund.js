@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { actionCreator } from '../redux/actionCreator'
 import UpdateButtonIcon from './UpdateButtonIcon'
+import JerryIndexText from './JerryIndexText'
 
 const Fund = (props) => {
   const dispatch = useDispatch()
@@ -62,7 +63,9 @@ const Fund = (props) => {
     <tr>
       <td>{props.fund.name}</td>
       <td>{props.fund.code}</td>
-      <td className={jerryIndexClassName}>{props.fund.jerryIndex}</td>
+      <td>
+        <JerryIndexText jerryIndex={props.fund.jerryIndex}/>
+      </td>
       <td>
         <button
           onClick={fetchJerryIndex}

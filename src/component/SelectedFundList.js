@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import JerryIndexText from './JerryIndexText'
 
 const SelectedFundList = () => {
   const selectedFundList = useSelector(state => state.selectedFundList)
@@ -23,7 +24,7 @@ const SelectedFundList = () => {
           {item.code}
         </td>
         <td>
-          {item.jerryIndex}
+          <JerryIndexText jerryIndex={item.jerryIndex}/>
         </td>
         <td>
           {(totalAmount * item.jerryIndex / jerryIndexSum).toFixed(2)}
