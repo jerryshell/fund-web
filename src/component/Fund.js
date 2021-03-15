@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { actionCreator } from '../redux/actionCreator'
 import UpdateButtonIcon from './UpdateButtonIcon'
 import JerryIndexText from './JerryIndexText'
+import fundApi from '../api/fundApi'
 
 const Fund = (props) => {
   const dispatch = useDispatch()
@@ -13,8 +13,7 @@ const Fund = (props) => {
 
   const fetchJerryIndex = useCallback(() => {
     setLoading(true)
-    const url = `http://127.0.0.1:8080/fund/jerryIndex/fundCode/${props.fund.code}`
-    axios.get(url).then(response => {
+    fundApi.getJerryIndexByCode(props.fund.code).then(response => {
       console.log('fetchJerryIndex() response', response)
       dispatch(actionCreator.setJerryIndexByCode(response.data, props.fund.code))
     }).catch(e => {
