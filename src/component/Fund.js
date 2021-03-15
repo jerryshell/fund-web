@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { actionCreator } from '../redux/actionCreator'
@@ -9,36 +9,20 @@ const Fund = (props) => {
   const dispatch = useDispatch()
   const selectedFundList = useSelector(store => store.selectedFundList)
 
-  const [jerryIndexClassName, setJerryIndexClassName] = useState('info')
   const [loading, setLoading] = useState(false)
 
-  const fetchJerryIndex = () => {
+  const fetchJerryIndex = useCallback(() => {
     setLoading(true)
     const url = `http://127.0.0.1:8080/fund/jerryIndex/fundCode/${props.fund.code}`
     axios.get(url).then(response => {
       console.log('fetchJerryIndex() response', response)
-
-      // setJerryIndex
-      const jerryIndex = response.data
-      dispatch(actionCreator.setJerryIndexByCode(jerryIndex, props.fund.code))
-
-      // setJerryIndexClassName
-      if (jerryIndex <= -5) {
-        setJerryIndexClassName('success')
-      } else if (jerryIndex < 0) {
-        setJerryIndexClassName('info')
-      } else if (jerryIndex >= 5) {
-        setJerryIndexClassName('danger')
-      } else if (jerryIndex >= 0) {
-        setJerryIndexClassName('warning')
-      }
-
+      dispatch(actionCreator.setJerryIndexByCode(response.data, props.fund.code))
     }).catch(e => {
       console.error(e)
     }).finally(() => {
       setLoading(false)
     })
-  }
+  }, [dispatch, props.fund.code])
 
   const handleRemoveBtnClick = () => {
     console.log('handleRemoveBtnClick()')
@@ -57,7 +41,9 @@ const Fund = (props) => {
     }
   }
 
-  useEffect(fetchJerryIndex, [dispatch, props.fund.code])
+  useEffect(() => {
+    fetchJerryIndex()
+  }, [dispatch, props.fund.code, fetchJerryIndex])
 
   return (
     <tr>
