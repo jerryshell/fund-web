@@ -6,9 +6,11 @@ import reportWebVitals from './reportWebVitals'
 import { combineReducers, createStore } from 'redux'
 import { fundReducer } from './redux/fundReducer'
 import { Provider } from 'react-redux'
+import { selectedFundListReducer } from './redux/selectedFundListReducer'
 
 const reducer = combineReducers({
   fundList: fundReducer,
+  selectedFundList: selectedFundListReducer,
 })
 
 const store = createStore(reducer)

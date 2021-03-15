@@ -3,4 +3,6 @@ export const actionType = {
   addFund: 'addFund',
   removeFund: 'removeFund',
   setJerryIndexByCode: 'setJerryIndexByCode',
+  pushSelectedFundList: 'pushSelectedFundList',
+  removeSelectedFundListByCode: 'removeSelectedFundListByCode',
 }

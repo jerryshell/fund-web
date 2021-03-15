@@ -5,6 +5,7 @@ import FundTable from './component/FundTable'
 import FundAdd from './component/FundAdd'
 import FundExport from './component/FundExport'
 import FundImport from './component/FundImport'
+import SelectedFundList from './component/SelectedFundList'
 
 const App = () => {
   const fundList = useSelector(store => store.fundList)
@@ -15,6 +16,7 @@ const App = () => {
       <FundAdd/>
       <FundExport/>
       <FundImport/>
+      <SelectedFundList/>
       <FundTable fundList={fundList}/>
     </div>
   )

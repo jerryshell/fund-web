@@ -24,6 +24,9 @@ const FundTable = (props) => {
         <th>
           查看详情
         </th>
+        <th>
+          操作
+        </th>
       </tr>
       </thead>
       <tbody>
@@ -31,9 +34,7 @@ const FundTable = (props) => {
         props.fundList.map(fund => (
           <Fund
             key={fund.code}
-            name={fund.name}
-            code={fund.code}
-            jerryIndex={fund.jerryIndex}
+            fund={fund}
           />
         ))
       }

@@ -32,4 +32,18 @@ export const actionCreator = {
       }
     }
   },
+  pushSelectedFundList: (fund) => {
+    console.log('pushSelectedFundList() fund', fund)
+    return {
+      type: actionType.pushSelectedFundList,
+      data: fund,
+    }
+  },
+  removeSelectedFundListByCode: (code) => {
+    console.log('removeSelectedFundListByCode() code', code)
+    return {
+      type: actionType.removeSelectedFundListByCode,
+      data: code,
+    }
+  }
 }

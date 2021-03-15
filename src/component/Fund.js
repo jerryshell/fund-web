@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { actionCreator } from '../redux/actionCreator'
 import UpdateButtonIcon from './UpdateButtonIcon'
 
 const Fund = (props) => {
   const dispatch = useDispatch()
+  const selectedFundList = useSelector(store => store.selectedFundList)
 
   const [jerryIndexClassName, setJerryIndexClassName] = useState('info')
   const [loading, setLoading] = useState(false)
 
   const fetchJerryIndex = () => {
     setLoading(true)
-    const url = `http://127.0.0.1:8080/fund/jerryIndex/fundCode/${props.code}`
+    const url = `http://127.0.0.1:8080/fund/jerryIndex/fundCode/${props.fund.code}`
     axios.get(url).then(response => {
       console.log('fetchJerryIndex() response', response)
 
       // setJerryIndex
       const jerryIndex = response.data
-      dispatch(actionCreator.setJerryIndexByCode(jerryIndex, props.code))
+      dispatch(actionCreator.setJerryIndexByCode(jerryIndex, props.fund.code))
 
       // setJerryIndexClassName
       if (jerryIndex <= -5) {
@@ -40,20 +41,28 @@ const Fund = (props) => {
 
   const handleRemoveBtnClick = () => {
     console.log('handleRemoveBtnClick()')
-    dispatch(actionCreator.removeFund(props.code))
+    dispatch(actionCreator.removeFund(props.fund.code))
   }
 
   const handleDetailBtnClick = () => {
-    window.open(`https://fund.eastmoney.com/${props.code}.html`, '_blank')
+    window.open(`https://fund.eastmoney.com/${props.fund.code}.html`, '_blank')
   }
 
-  useEffect(fetchJerryIndex, [dispatch, props.code])
+  const handleCheckboxChange = (checked) => {
+    if (checked) {
+      dispatch(actionCreator.pushSelectedFundList(props.fund))
+    } else {
+      dispatch(actionCreator.removeSelectedFundListByCode(props.fund.code))
+    }
+  }
+
+  useEffect(fetchJerryIndex, [dispatch, props.fund.code])
 
   return (
     <tr>
-      <td>{props.name}</td>
-      <td>{props.code}</td>
-      <td className={jerryIndexClassName}>{props.jerryIndex}</td>
+      <td>{props.fund.name}</td>
+      <td>{props.fund.code}</td>
+      <td className={jerryIndexClassName}>{props.fund.jerryIndex}</td>
       <td>
         <button
           onClick={fetchJerryIndex}
@@ -89,6 +98,13 @@ const Fund = (props) => {
             />
           </svg>
         </button>
+      </td>
+      <td>
+        <input
+          type="checkbox"
+          defaultChecked={selectedFundList.find(item => item.code === props.fund.code)}
+          onChange={e => {handleCheckboxChange(e.target.checked)}}
+        />
       </td>
     </tr>
   )

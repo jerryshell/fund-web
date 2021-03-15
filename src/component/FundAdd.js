@@ -38,17 +38,15 @@ const FundAdd = () => {
     <details>
       <summary>添加基金</summary>
       <form>
-        <label form={'fundName'}>基金名称</label>
+        <label>基金名称</label>
         <input
-          id={'fundName'}
           type={'text'}
           placeholder={'基金名称'}
           value={newFund.name}
           onChange={handleNewFundNameChange}
         />
-        <label form={'fundCode'}>基金代码</label>
+        <label>基金代码</label>
         <input
-          id={'fundCode'}
           type={'text'}
           placeholder={'基金代码'}
           value={newFund.code}
