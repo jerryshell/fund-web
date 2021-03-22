@@ -35,14 +35,14 @@ const SelectedFundList = () => {
 
   return (
     <details>
-      <summary>操作计算</summary>
+      <summary>加仓计算</summary>
       <p>
         指标之和：{jerryIndexSum.toFixed(2)}
       </p>
 
       <form>
         <label>
-          本次操作总金额
+          本次加仓总金额
         </label>
         <input
           type={'number'}
@@ -63,7 +63,7 @@ const SelectedFundList = () => {
             投资指标
           </th>
           <th>
-            本次操作金额
+            本次加仓金额
           </th>
         </tr>
         </thead>

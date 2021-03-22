@@ -25,7 +25,7 @@ const FundTable = (props) => {
           查看详情
         </th>
         <th>
-          操作
+          加仓
         </th>
       </tr>
       </thead>
