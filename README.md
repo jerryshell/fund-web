@@ -6,6 +6,12 @@
 
 投资有风险，入市须谨慎！
 
+## 相关项目
+
+* 前端（当前项目）
+* [Spring Boot 后端](https://github.com/jerryshell/fund-server)
+* [阿里云 Serverless 后端](https://github.com/jerryshell/fund-serverless-aliyun)
+
 ## 安装依赖
 
 ```bash
@@ -17,10 +23,6 @@ yarn
 ```bash
 yarn start
 ```
-
-## 配套后端
-
-https://github.com/jerryshell/fund-server
 
 ## Screenshot
 
