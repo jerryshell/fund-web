@@ -90,7 +90,7 @@ const Fund = (props) => {
       <td>
         <input
           type="checkbox"
-          disabled={props.fund.jerryIndex > 0}
+          disabled={props.fund.jerryIndex >= 0}
           defaultChecked={selectedFundList.find(item => item.code === props.fund.code)}
           onChange={e => {handleCheckboxChange(e.target.checked)}}
         />
