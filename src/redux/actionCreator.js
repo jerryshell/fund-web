@@ -29,7 +29,7 @@ export const actionCreator = {
       data: {
         jerryIndex,
         code,
-      }
+      },
     }
   },
   pushSelectedFundList: (fund) => {
@@ -45,5 +45,5 @@ export const actionCreator = {
       type: actionType.removeSelectedFundListByCode,
       data: code,
     }
-  }
+  },
 }
