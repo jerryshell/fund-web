@@ -15,7 +15,9 @@ const Fund = (props) => {
     setLoading(true)
     fundApi.getJerryIndexByCode(props.fund.code).then(response => {
       console.log('fetchJerryIndex() response', response)
-      dispatch(actionCreator.setJerryIndexByCode(response.data, props.fund.code))
+      dispatch(
+        actionCreator.setJerryIndexByCode(response.data, props.fund.code),
+      )
     }).catch(e => {
       console.error(e)
     }).finally(() => {
@@ -91,7 +93,9 @@ const Fund = (props) => {
         <input
           type="checkbox"
           disabled={props.fund.jerryIndex >= 0}
-          defaultChecked={selectedFundList.find(item => item.code === props.fund.code)}
+          defaultChecked={
+            selectedFundList.find(item => item.code === props.fund.code)
+          }
           onChange={e => {handleCheckboxChange(e.target.checked)}}
         />
       </td>

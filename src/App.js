@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>公募基金短线投资指标</h1>
+      <h1>公募基金投资指标</h1>
       <FundAdd/>
       <FundExport/>
       <FundImport/>
