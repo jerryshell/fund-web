@@ -6,6 +6,7 @@ import FundAdd from './component/FundAdd'
 import FundExport from './component/FundExport'
 import FundImport from './component/FundImport'
 import SelectedFundList from './component/SelectedFundList'
+import BaiduIndex from './component/BaiduIndex'
 
 const App = () => {
   const fundList = useSelector(store => store.fundList)
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <div>
       <h1>公募基金投资指标</h1>
+      <BaiduIndex/>
       <FundAdd/>
       <FundExport/>
       <FundImport/>
