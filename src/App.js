@@ -14,7 +14,8 @@ const App = () => {
   return (
     <div>
       <h1>公募基金投资指标</h1>
-      <BaiduIndex/>
+      <BaiduIndex word={'基金'}/>
+      <BaiduIndex word={'股票'}/>
       <FundAdd/>
       <FundExport/>
       <FundImport/>
