@@ -14,6 +14,7 @@ const App = () => {
   return (
     <div>
       <h1>公募基金投资指标</h1>
+      <blockquote>Heroku 冷启动需要 1-2 分钟</blockquote>
       <BaiduIndex word={'基金'}/>
       <BaiduIndex word={'股票'}/>
       <FundAdd/>
