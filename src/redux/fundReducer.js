@@ -39,7 +39,7 @@ export const fundReducer = (state = initState, action) => {
           item => item.code === action.data.code ? fundInState : item,
         )
       }
-      return state.concat(action.data)
+      return [action.data].concat(state)
     }
     case actionType.removeFund: {
       return state.filter(item => item.code !== action.data)
