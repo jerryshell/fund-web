@@ -15,9 +15,11 @@ const Fund = (props) => {
     setLoading(true)
     fundApi.getJerryIndexByCode(props.fund.code).then(response => {
       console.log('fetchJerryIndex() response', response)
-      dispatch(
-        actionCreator.setJerryIndexByCode(response.data, props.fund.code),
+      const action = actionCreator.setJerryIndexByCode(
+        response.data.message,
+        props.fund.code,
       )
+      dispatch(action)
     }).catch(e => {
       console.error(e)
     }).finally(() => {
