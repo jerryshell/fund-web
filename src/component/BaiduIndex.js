@@ -15,14 +15,14 @@ const BaiduIndex = (props) => {
     fundApi.getBaiduIndexByWord(props.word).then(response => {
       console.log('getBaiduIndexByWord() word', props.word, 'response.data', response.data)
 
-      setBaiduDateList(response.data.baiduDateList)
-      setBaiduAllIndexList(response.data.baiduAllIndexList)
-      setBaiduAllIndexListSum(response.data.baiduAllIndexListSum)
-      setBaiduAllIndexListAvg(response.data.baiduAllIndexListAvg)
+      setBaiduDateList(response.data.data.baiduDateList)
+      setBaiduAllIndexList(response.data.data.baiduAllIndexList)
+      setBaiduAllIndexListSum(response.data.data.baiduAllIndexListSum)
+      setBaiduAllIndexListAvg(response.data.data.baiduAllIndexListAvg)
 
-      const zip = response.data.baiduAllIndexList.map((item, index) => {
+      const zip = response.data.data.baiduAllIndexList.map((item, index) => {
         return {
-          'date': response.data.baiduDateList[index],
+          'date': response.data.data.baiduDateList[index],
           'value': item,
         }
       })

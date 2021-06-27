@@ -5,7 +5,7 @@ const fundApi = {
     return axios.get(`fund/jerryIndex/fundCode/${code}`)
   },
   getBaiduIndexByWord: (word) => {
-    return axios.get(`fund/baiduIndex/word/${word}`)
+    return axios.get(`fund/baiduIndex/keyword/${word}`)
   }
 }
 
