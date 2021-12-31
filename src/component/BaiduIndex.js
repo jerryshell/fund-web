@@ -3,9 +3,7 @@ import fundApi from '../api/fundApi'
 import { Line } from '@ant-design/charts'
 
 const BaiduIndex = (props) => {
-  const [baiduDateList, setBaiduDateList] = useState([])
   const [baiduAllIndexList, setBaiduAllIndexList] = useState([])
-  const [baiduAllIndexListSum, setBaiduAllIndexListSum] = useState(0)
   const [baiduAllIndexListAvg, setBaiduAllIndexListAvg] = useState(0)
   const [chartConfig, setChartConfig] = useState({})
   const [showChartFlag, setShowChartFlag] = useState(false)
@@ -15,9 +13,7 @@ const BaiduIndex = (props) => {
     fundApi.getBaiduIndexByWord(props.word).then(response => {
       console.log('getBaiduIndexByWord() word', props.word, 'response.data', response.data)
 
-      setBaiduDateList(response.data.data.baiduDateList)
       setBaiduAllIndexList(response.data.data.baiduAllIndexList)
-      setBaiduAllIndexListSum(response.data.data.baiduAllIndexListSum)
       setBaiduAllIndexListAvg(response.data.data.baiduAllIndexListAvg)
 
       const zip = response.data.data.baiduAllIndexList.map((item, index) => {
