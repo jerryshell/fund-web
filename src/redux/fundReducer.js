@@ -2,23 +2,18 @@ import {actionType} from './actionType'
 
 const initState = [
     {
-        'name': '华夏沪深300ETF联接A',
-        'code': '000051',
+        'name': '广发中证1000指数A',
+        'code': '006486',
         'jerryIndex': 0,
     },
     {
-        'name': '天弘沪深300ETF联接A',
-        'code': '000961',
+        'name': '华夏中证500ETF联接A',
+        'code': '001052',
         'jerryIndex': 0,
     },
     {
-        'name': '华宝中证100指数A',
-        'code': '240014',
-        'jerryIndex': 0,
-    },
-    {
-        'name': '交银创业板50指数A',
-        'code': '007464',
+        'name': '易方达创业板ETF联接A',
+        'code': '110026',
         'jerryIndex': 0,
     },
 ]
