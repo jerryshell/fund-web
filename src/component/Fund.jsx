@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {actionCreator} from '../redux/actionCreator'
 import UpdateButtonIcon from './UpdateButtonIcon'
@@ -11,21 +11,27 @@ const Fund = (props) => {
 
     const [loading, setLoading] = useState(false)
 
-    const fetchJerryIndex = useCallback(() => {
+    const fetchJerryIndex = () => {
         setLoading(true)
-        fundApi.getJerryIndexByCode(props.fund.code).then(response => {
-            console.log('fetchJerryIndex() response', response)
-            const action = actionCreator.setJerryIndexByCode(
-                response.data.data,
-                props.fund.code,
-            )
-            dispatch(action)
-        }).catch(e => {
-            console.error(e)
-        }).finally(() => {
-            setLoading(false)
-        })
-    }, [dispatch, props.fund.code])
+        fundApi.getJerryIndexByCode(props.fund.code)
+            .then(response => {
+                console.log('fetchJerryIndex() response', response)
+
+                const jerryIndex = response.data.data
+                console.log('fetchJerryIndex() jerryIndex', jerryIndex)
+
+                const action = actionCreator.setJerryIndexByCode(jerryIndex, props.fund.code)
+                console.log('fetchJerryIndex() response', response)
+
+                dispatch(action)
+            })
+            .catch(e => {
+                console.error(e)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+    }
 
     const handleRemoveBtnClick = () => {
         console.log('handleRemoveBtnClick()')
@@ -46,7 +52,7 @@ const Fund = (props) => {
 
     useEffect(() => {
         fetchJerryIndex()
-    }, [dispatch, props.fund.code, fetchJerryIndex])
+    }, [props.fund.code])
 
     return (
         <tr>

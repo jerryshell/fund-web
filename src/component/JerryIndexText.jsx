@@ -14,9 +14,7 @@ const JerryIndexText = (props) => {
     }
 
     return (
-        <span className={jerryIndexClassName}>
-          {props.jerryIndex}
-    </span>
+        <span className={jerryIndexClassName}>{props.jerryIndex}</span>
     )
 }
 
