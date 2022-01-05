@@ -29,7 +29,3 @@ yarn
 ```bash
 yarn dev
 ```
-
-## Screenshot
-
-![screenshot](screenshot/screenshot.png)
