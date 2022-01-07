@@ -59,18 +59,22 @@ const BaiduIndex = (props) => {
     }, [props.word])
 
     return (
-        <details>
-            <summary>百度搜索指数：{props.word}</summary>
-            {
-                showChartFlag && (
-                    <div>
-                        <h3>180 天平均数：{baiduAllIndexListAvg.toFixed(2)}</h3>
-                        <h3>当前搜索指数：{baiduAllIndexList[baiduAllIndexList.length - 1].toFixed(2)}</h3>
-                        <Line {...chartConfig} />
-                    </div>
-                )
-            }
-        </details>
+        <article>
+            <details>
+                <summary>百度搜索指数：{props.word}</summary>
+                {
+                    showChartFlag
+                        ?
+                        <div>
+                            <p>180 天平均数：{baiduAllIndexListAvg.toFixed(2)}</p>
+                            <p>当前搜索指数：{baiduAllIndexList[baiduAllIndexList.length - 1].toFixed(2)}</p>
+                            <Line {...chartConfig} />
+                        </div>
+                        :
+                        <p>加载中...</p>
+                }
+            </details>
+        </article>
     )
 }
 export default BaiduIndex

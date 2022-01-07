@@ -34,44 +34,48 @@ const SelectedFundList = () => {
     })
 
     return (
-        <details>
-            <summary>加仓计算</summary>
-            <p>
-                指标之和：{jerryIndexSum.toFixed(2)}
-            </p>
+        <article>
+            <details>
+                <summary>加仓计算</summary>
+                <p>
+                    指标之和：{jerryIndexSum.toFixed(2)}
+                </p>
 
-            <form>
-                <label>
-                    本次加仓总金额
-                </label>
-                <input
-                    type={'number'}
-                    onChange={e => setTotalAmount(e.target.value)}
-                />
-            </form>
+                <form>
+                    <label>
+                        本次加仓总金额
+                    </label>
+                    <input
+                        type={'number'}
+                        onChange={e => setTotalAmount(e.target.value)}
+                    />
+                </form>
 
-            <table>
-                <thead>
-                <tr>
-                    <th>
-                        名称
-                    </th>
-                    <th>
-                        代码
-                    </th>
-                    <th>
-                        投资指标
-                    </th>
-                    <th>
-                        本次加仓金额
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                {tbody}
-                </tbody>
-            </table>
-        </details>
+                <figure>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>
+                                名称
+                            </th>
+                            <th>
+                                代码
+                            </th>
+                            <th>
+                                投资指标
+                            </th>
+                            <th>
+                                本次加仓金额
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {tbody}
+                        </tbody>
+                    </table>
+                </figure>
+            </details>
+        </article>
     )
 }
 

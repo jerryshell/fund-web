@@ -14,16 +14,18 @@ const Footer = React.lazy(() => import('./component/Footer'))
 const App = () => {
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            <Header/>
-            <BaiduIndex word={'基金'}/>
-            <BaiduIndex word={'股票'}/>
-            <FundAdd/>
-            <FundExport/>
-            <FundImport/>
-            <RefreshTimer/>
-            <SelectedFundList/>
-            <FundTable/>
-            <Footer/>
+            <main className="container">
+                <Header/>
+                <BaiduIndex word={'基金'}/>
+                <BaiduIndex word={'股票'}/>
+                <FundAdd/>
+                <FundExport/>
+                <FundImport/>
+                <RefreshTimer/>
+                <SelectedFundList/>
+                <FundTable/>
+                <Footer/>
+            </main>
         </Suspense>
     )
 }

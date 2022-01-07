@@ -39,22 +39,29 @@ const RefreshTimer = (props) => {
     }
 
     return (
-        <fieldset>
-            <legend>定时刷新</legend>
-            <label>
-                开启
-                <input type="checkbox" checked={enableFlag} onChange={e => setEnableFlag(e.target.checked)}/>
-            </label>
-            <label>
-                <input
-                    type="number"
-                    min="1"
-                    value={refreshInterval}
-                    onChange={e => setRefreshInterval(Number(e.target.value))}
-                />
-            </label>
-            <span>秒</span>
-        </fieldset>
+        <article>
+            <details open>
+                <summary>定时刷新</summary>
+                <form>
+                    <label>
+                        刷新间隔，秒
+                        <input
+                            type="number"
+                            min="1"
+                            value={refreshInterval}
+                            onChange={e => setRefreshInterval(Number(e.target.value))}
+                        />
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox" role="switch" checked={enableFlag}
+                            onChange={e => setEnableFlag(e.target.checked)}
+                        />
+                        开启
+                    </label>
+                </form>
+            </details>
+        </article>
     )
 }
 

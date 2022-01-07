@@ -35,26 +35,34 @@ const FundAdd = () => {
     }
 
     return (
-        <details>
-            <summary>添加基金</summary>
-            <form>
-                <label>基金名称</label>
-                <input
-                    type={'text'}
-                    placeholder={'基金名称'}
-                    value={newFund.name}
-                    onChange={handleNewFundNameChange}
-                />
-                <label>基金代码</label>
-                <input
-                    type={'text'}
-                    placeholder={'基金代码'}
-                    value={newFund.code}
-                    onChange={handleNewFundCodeChange}
-                />
-            </form>
-            <button onClick={handleAddBtnClick}>添加</button>
-        </details>
+        <article>
+            <details>
+                <summary>添加基金</summary>
+                <form>
+                    <div className="grid">
+                        <label>
+                            基金名称
+                            <input
+                                type={'text'}
+                                placeholder={'基金名称'}
+                                value={newFund.name}
+                                onChange={handleNewFundNameChange}
+                            />
+                        </label>
+                        <label>
+                            基金代码
+                            <input
+                                type={'text'}
+                                placeholder={'基金代码'}
+                                value={newFund.code}
+                                onChange={handleNewFundCodeChange}
+                            />
+                        </label>
+                    </div>
+                </form>
+                <button onClick={handleAddBtnClick}>添加</button>
+            </details>
+        </article>
     )
 }
 

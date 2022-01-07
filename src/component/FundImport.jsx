@@ -28,14 +28,16 @@ const FundImport = (props) => {
     }
 
     return (
-        <details>
-            <summary>数据导入</summary>
-            <textarea
-                value={fundListStr}
-                onChange={handleFundListStrChange}
-            />
-            <button onClick={handleImportBtnClick}>{importResult} 数据导入</button>
-        </details>
+        <article>
+            <details>
+                <summary>数据导入</summary>
+                <textarea
+                    value={fundListStr}
+                    onChange={handleFundListStrChange}
+                />
+                <button onClick={handleImportBtnClick}>{importResult} 数据导入</button>
+            </details>
+        </article>
     )
 }
 

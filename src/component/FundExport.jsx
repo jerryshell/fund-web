@@ -22,11 +22,13 @@ const FundExport = (props) => {
     }
 
     return (
-        <details>
-            <summary>数据导出</summary>
-            <button onClick={handleCopyBtnClick}>{copyResult} 复制到剪切板</button>
-            <code>{fundListStr}</code>
-        </details>
+        <article>
+            <details>
+                <summary>数据导出</summary>
+                <code>{fundListStr}</code>
+                <button onClick={handleCopyBtnClick}>{copyResult} 复制到剪切板</button>
+            </details>
+        </article>
     )
 }
 
