@@ -16,8 +16,8 @@ const App = () => {
         <Suspense fallback={<div>Loading...</div>}>
             <main className="container">
                 <Header/>
-                <BaiduIndex word={'基金'}/>
-                <BaiduIndex word={'股票'}/>
+                <BaiduIndex open={true} word={'基金'}/>
+                <BaiduIndex open={true} word={'股票'}/>
                 <FundAdd/>
                 <FundExport/>
                 <FundImport/>

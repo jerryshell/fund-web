@@ -60,7 +60,7 @@ const BaiduIndex = (props) => {
 
     return (
         <article>
-            <details>
+            <details open={props.open}>
                 <summary>百度搜索指数：{props.word}</summary>
                 {
                     showChartFlag
