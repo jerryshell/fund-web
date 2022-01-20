@@ -4,10 +4,13 @@ import {actionCreator} from '../redux/actionCreator'
 import UpdateButtonIcon from './UpdateButtonIcon'
 import JerryIndexText from './JerryIndexText'
 import fundApi from '../api/fundApi'
+import FundData from '../interfaces/FundData'
 
-const Fund = (props) => {
+const Fund = (props: {
+    fund: any,
+}) => {
     const dispatch = useDispatch()
-    const selectedFundList = useSelector(store => store.selectedFundList)
+    const selectedFundList = useSelector((store: { selectedFundList: FundData[] }) => store.selectedFundList)
 
     const [loading, setLoading] = useState(false)
 
@@ -42,7 +45,7 @@ const Fund = (props) => {
         window.open(`https://fund.eastmoney.com/${props.fund.code}.html`, '_blank')
     }
 
-    const handleCheckboxChange = (checked) => {
+    const handleCheckboxChange = (checked: boolean) => {
         if (checked) {
             dispatch(actionCreator.pushSelectedFundList(props.fund))
         } else {
@@ -102,7 +105,7 @@ const Fund = (props) => {
                     type="checkbox"
                     disabled={props.fund.jerryIndex >= 0}
                     defaultChecked={
-                        selectedFundList.find(item => item.code === props.fund.code)
+                        selectedFundList.some(item => item.code === props.fund.code)
                     }
                     onChange={e => {
                         handleCheckboxChange(e.target.checked)

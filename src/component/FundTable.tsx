@@ -1,9 +1,10 @@
 import React from 'react'
-import Fund from './Fund'
 import {useSelector} from "react-redux";
+import FundData from '../interfaces/FundData';
+import Fund from './Fund';
 
-const FundTable = (props) => {
-    const fundList = useSelector(store => store.fundList)
+const FundTable = () => {
+    const fundList = useSelector((store: { fundList: FundData[] }) => store.fundList)
     return (
         <article>
             <figure>

@@ -18,7 +18,7 @@ const initState = [
     },
 ]
 
-export const fundReducer = (state = initState, action) => {
+export const fundReducer = (state = initState, action: { type: string, data: any }) => {
     switch (action.type) {
         case actionType.setFundList: {
             const newFundList = action.data

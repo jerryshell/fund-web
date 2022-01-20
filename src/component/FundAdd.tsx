@@ -8,19 +8,20 @@ const FundAdd = () => {
     const [newFund, setNewFund] = useState({
         name: '',
         code: '',
+        jerryIndex: 0,
     })
 
-    const handleNewFundNameChange = (e) => {
+    const handleNewFundNameChange = (name: string) => {
         setNewFund({
             ...newFund,
-            name: e.target.value,
+            name,
         })
     }
 
-    const handleNewFundCodeChange = (e) => {
+    const handleNewFundCodeChange = (code: string) => {
         setNewFund({
             ...newFund,
-            code: e.target.value,
+            code,
         })
     }
 
@@ -31,6 +32,7 @@ const FundAdd = () => {
         setNewFund({
             name: '',
             code: '',
+            jerryIndex: 0,
         })
     }
 
@@ -46,7 +48,7 @@ const FundAdd = () => {
                                 type={'text'}
                                 placeholder={'基金名称'}
                                 value={newFund.name}
-                                onChange={handleNewFundNameChange}
+                                onChange={(e) => handleNewFundNameChange(e.target.value)}
                             />
                         </label>
                         <label>
@@ -55,7 +57,7 @@ const FundAdd = () => {
                                 type={'text'}
                                 placeholder={'基金代码'}
                                 value={newFund.code}
-                                onChange={handleNewFundCodeChange}
+                                onChange={(e) => handleNewFundCodeChange(e.target.value)}
                             />
                         </label>
                     </div>

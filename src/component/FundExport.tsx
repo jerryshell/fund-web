@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import {useSelector} from 'react-redux'
+import FundData from '../interfaces/FundData'
 
-const FundExport = (props) => {
-    const fundList = useSelector(state => state.fundList)
+const FundExport = () => {
+    const fundList = useSelector((state: { fundList: FundData[] }) => state.fundList)
     const [copyResult, setCopyResult] = useState('')
 
     const fundListStr = JSON.stringify(fundList)
-    const clipboard = navigator.clipboard || window.clipboard
+    const clipboard = navigator.clipboard || window.Clipboard
 
     const handleCopyBtnClick = () => {
         clipboard.writeText(fundListStr).then(() => {

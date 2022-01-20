@@ -1,8 +1,9 @@
+import FundData from '../interfaces/FundData'
 import {actionType} from './actionType'
 
-const initData = []
+const initData: FundData[] = []
 
-export const selectedFundListReducer = (state = initData, action) => {
+export const selectedFundListReducer = (state = initData, action: { type: string, data: any }) => {
     switch (action.type) {
         case actionType.pushSelectedFundList: {
             return state.concat(action.data)

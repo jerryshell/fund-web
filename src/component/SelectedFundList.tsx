@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import {useSelector} from 'react-redux'
+import FundData from '../interfaces/FundData'
 import JerryIndexText from './JerryIndexText'
 
 const SelectedFundList = () => {
-    const selectedFundList = useSelector(state => state.selectedFundList)
+    const selectedFundList = useSelector((store: { selectedFundList: FundData[] }) => store.selectedFundList)
 
     const [totalAmount, setTotalAmount] = useState(0)
 
@@ -47,7 +48,7 @@ const SelectedFundList = () => {
                     </label>
                     <input
                         type={'number'}
-                        onChange={e => setTotalAmount(e.target.value)}
+                        onChange={e => setTotalAmount(Number(e.target.value))}
                     />
                 </form>
 

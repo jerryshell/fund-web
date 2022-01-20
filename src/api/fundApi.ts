@@ -1,10 +1,10 @@
 import axios from './api'
 
 const fundApi = {
-    getJerryIndexByCode: (code) => {
+    getJerryIndexByCode: (code: string) => {
         return axios.get(`fund/jerryIndex/fundCode/${code}`)
     },
-    getBaiduIndexByWord: (word) => {
+    getBaiduIndexByWord: (word: string) => {
         return axios.get(`fund/baiduIndex/keyword/${word}`)
     }
 }

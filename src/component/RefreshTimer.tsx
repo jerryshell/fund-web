@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import fundApi from "../api/fundApi";
+import FundData from "../interfaces/FundData";
 import {actionCreator} from "../redux/actionCreator";
 
-const RefreshTimer = (props) => {
+const RefreshTimer = () => {
     const dispatch = useDispatch()
-    const fundList = useSelector(store => store.fundList)
+    const fundList = useSelector((store: { fundList: FundData[] }) => store.fundList)
     const [timer, setTimer] = useState(0)
     const [enableFlag, setEnableFlag] = useState(false)
     const [refreshInterval, setRefreshInterval] = useState(3)
@@ -30,7 +31,7 @@ const RefreshTimer = (props) => {
         }
     }, [enableFlag, refreshInterval])
 
-    const fetchJerryIndexByCode = (code) => {
+    const fetchJerryIndexByCode = (code: string) => {
         return fundApi.getJerryIndexByCode(code)
             .then(response => response.data.data)
             .catch(e => {

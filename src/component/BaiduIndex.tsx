@@ -2,11 +2,15 @@ import React, {useEffect, useState} from 'react'
 import fundApi from '../api/fundApi'
 import {Line} from '@ant-design/charts'
 
-const BaiduIndex = (props) => {
-    const [baiduAllIndexList, setBaiduAllIndexList] = useState([])
+const BaiduIndex = (props: {
+    open: boolean,
+    word: string,
+}) => {
+    const [baiduAllIndexList, setBaiduAllIndexList] = useState<number[]>([])
     const [baiduAllIndexListAvg, setBaiduAllIndexListAvg] = useState(0)
     const [chartConfig, setChartConfig] = useState({})
     const [showChartFlag, setShowChartFlag] = useState(false)
+    const [data, setData] = useState([])
 
     useEffect(() => {
         setShowChartFlag(false)
@@ -16,15 +20,15 @@ const BaiduIndex = (props) => {
             setBaiduAllIndexList(response.data.data.baiduAllIndexList)
             setBaiduAllIndexListAvg(response.data.data.baiduAllIndexListAvg)
 
-            const zip = response.data.data.baiduAllIndexList.map((item, index) => {
+            const data = response.data.data.baiduAllIndexList.map((item: number, index: number) => {
                 return {
                     'date': response.data.data.baiduDateList[index],
                     'value': item,
                 }
             })
+            setData(data)
 
             const config = {
-                data: zip,
                 padding: 'auto',
                 xField: 'date',
                 yField: 'value',
@@ -68,7 +72,7 @@ const BaiduIndex = (props) => {
                         <div>
                             <p>180 天平均数：{baiduAllIndexListAvg.toFixed(2)}</p>
                             <p>当前搜索指数：{baiduAllIndexList[baiduAllIndexList.length - 1].toFixed(2)}</p>
-                            <Line {...chartConfig} />
+                            <Line data={data} {...chartConfig} />
                         </div>
                         :
                         <p>加载中...</p>

@@ -1,6 +1,8 @@
 import React from 'react'
 
-const UpdateButtonIcon = (props) => {
+const UpdateButtonIcon = (props: {
+    loading: boolean,
+}) => {
     if (props.loading) {
         return (
             <svg

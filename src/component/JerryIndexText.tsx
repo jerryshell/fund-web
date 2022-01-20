@@ -1,6 +1,6 @@
 import React from 'react'
 
-const JerryIndexText = (props) => {
+const JerryIndexText = (props: { jerryIndex: number }) => {
     let jerryIndexClassName = ''
 
     if (props.jerryIndex <= -5) {

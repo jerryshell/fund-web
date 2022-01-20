@@ -2,13 +2,13 @@ import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {actionCreator} from '../redux/actionCreator'
 
-const FundImport = (props) => {
+const FundImport = () => {
     const dispatch = useDispatch()
     const [fundListStr, setFundListStr] = useState('')
     const [importResult, setImportResult] = useState('')
 
-    const handleFundListStrChange = (e) => {
-        setFundListStr(e.target.value)
+    const handleFundListStrChange = (fundListStr: string) => {
+        setFundListStr(fundListStr)
     }
 
     const handleImportBtnClick = () => {
@@ -33,7 +33,7 @@ const FundImport = (props) => {
                 <summary>数据导入</summary>
                 <textarea
                     value={fundListStr}
-                    onChange={handleFundListStrChange}
+                    onChange={(e) => handleFundListStrChange(e.target.value)}
                 />
                 <button onClick={handleImportBtnClick}>{importResult} 数据导入</button>
             </details>
