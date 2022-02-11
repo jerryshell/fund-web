@@ -14,9 +14,10 @@ Demo 服务端部署在 Heroku 上，冷启动大概需要 1-2 分钟
 
 ## 相关项目
 
-* 前端（当前项目）
-* [Spring Boot 后端](https://github.com/jerryshell/fund-server)
-* [阿里云 Serverless 后端](https://github.com/jerryshell/fund-serverless-aliyun)
+* Web 端（当前项目）
+* [Rust 服务端](https://github.com/jerryshell/jfi)
+* [Spring Boot 服务端](https://github.com/jerryshell/fund-server)
+* [阿里云 Serverless 服务端](https://github.com/jerryshell/fund-serverless-aliyun)
 
 ## 安装依赖
 
