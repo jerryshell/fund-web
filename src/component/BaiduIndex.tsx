@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import fundApi from '../api/fundApi'
-import {Line} from '@ant-design/charts'
+import { Line } from '@ant-design/plots'
 
 const BaiduIndex = (props: {
     open: boolean,
@@ -43,7 +43,7 @@ const BaiduIndex = (props: {
                         type: 'text',
                         position: ['min', 'mean'],
                         content: '平均数',
-                        style: {textBaseline: 'bottom'},
+                        style: { textBaseline: 'bottom' },
                     },
                     {
                         type: 'line',
