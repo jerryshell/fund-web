@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import {useSelector} from 'react-redux'
-import FundData from '../interfaces/FundData'
+import {RootState} from "../redux/store";
 
 const FundExport = () => {
-    const fundList = useSelector((state: { fundList: FundData[] }) => state.fundList)
+    const fundList = useSelector((store: RootState) => store.fundSliceReducer)
     const [copyResult, setCopyResult] = useState('')
 
     const fundListStr = JSON.stringify(fundList)

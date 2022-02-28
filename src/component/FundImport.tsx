@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {actionCreator} from '../redux/actionCreator'
+import {fundSliceActions} from "../redux/fundSlice";
 
 const FundImport = () => {
     const dispatch = useDispatch()
@@ -14,8 +14,7 @@ const FundImport = () => {
     const handleImportBtnClick = () => {
         try {
             const newFundList = JSON.parse(fundListStr)
-            console.log(newFundList)
-            dispatch(actionCreator.setFundList(newFundList))
+            dispatch(fundSliceActions.setFundData(newFundList))
             setImportResult('✅')
         } catch (e) {
             console.error(e)

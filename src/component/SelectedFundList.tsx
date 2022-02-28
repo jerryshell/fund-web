@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import {useSelector} from 'react-redux'
-import FundData from '../interfaces/FundData'
 import JerryIndexText from './JerryIndexText'
+import {RootState} from "../redux/store";
 
 const SelectedFundList = () => {
-    const selectedFundList = useSelector((store: { selectedFundList: FundData[] }) => store.selectedFundList)
+    const selectedFundList = useSelector((store: RootState) => store.selectedFundListSliceReducer)
 
     const [totalAmount, setTotalAmount] = useState(0)
 

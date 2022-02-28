@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {actionCreator} from '../redux/actionCreator'
+import {fundSliceActions} from "../redux/fundSlice";
 
 const FundAdd = () => {
     const dispatch = useDispatch()
@@ -26,9 +26,7 @@ const FundAdd = () => {
     }
 
     const handleAddBtnClick = () => {
-        console.log('handleAddBtnClick')
-        console.log('newFund', newFund)
-        dispatch(actionCreator.addFund({...newFund}))
+        dispatch(fundSliceActions.addFund({fund: {...newFund}}))
         setNewFund({
             name: '',
             code: '',

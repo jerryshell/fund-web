@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import fundApi from "../api/fundApi";
-import FundData from "../interfaces/FundData";
-import {actionCreator} from "../redux/actionCreator";
+import {fundSliceActions} from "../redux/fundSlice";
+import {RootState} from "../redux/store";
 
 const RefreshTimer = () => {
     const dispatch = useDispatch()
-    const fundList = useSelector((store: { fundList: FundData[] }) => store.fundList)
+    const fundList = useSelector((store: RootState) => store.selectedFundListSliceReducer)
     const [timer, setTimer] = useState(0)
     const [enableFlag, setEnableFlag] = useState(false)
     const [refreshInterval, setRefreshInterval] = useState(3)
@@ -19,7 +19,10 @@ const RefreshTimer = () => {
             const timer = setInterval(() => {
                 fundList.forEach(async (fund) => {
                     fetchJerryIndexByCode(fund.code)
-                        .then(jerryIndex => dispatch(actionCreator.setJerryIndexByCode(jerryIndex, fund.code)))
+                        .then(jerryIndex => dispatch(fundSliceActions.setJerryIndexByCode({
+                            jerryIndex,
+                            code: fund.code
+                        })))
                 })
             }, refreshInterval * 1000)
             setTimer(timer)

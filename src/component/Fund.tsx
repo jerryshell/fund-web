@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {actionCreator} from '../redux/actionCreator'
 import UpdateButtonIcon from './UpdateButtonIcon'
 import JerryIndexText from './JerryIndexText'
 import fundApi from '../api/fundApi'
-import FundData from '../interfaces/FundData'
+import {fundSliceActions} from "../redux/fundSlice";
+import {selectedFundListSliceActions} from "../redux/selectedFundListSlice";
+import {RootState} from "../redux/store";
+import FundData from "../interfaces/FundData";
 
 const Fund = (props: {
-    fund: any,
+    fund: FundData,
 }) => {
     const dispatch = useDispatch()
-    const selectedFundList = useSelector((store: { selectedFundList: FundData[] }) => store.selectedFundList)
+    const selectedFundList = useSelector((store: RootState) => store.selectedFundListSliceReducer)
 
     const [loading, setLoading] = useState(false)
 
@@ -23,10 +25,10 @@ const Fund = (props: {
                 const jerryIndex = response.data.data
                 console.log('fetchJerryIndex() jerryIndex', jerryIndex)
 
-                const action = actionCreator.setJerryIndexByCode(jerryIndex, props.fund.code)
-                console.log('fetchJerryIndex() response', response)
-
-                dispatch(action)
+                dispatch(fundSliceActions.setJerryIndexByCode({
+                    jerryIndex,
+                    code: props.fund.code
+                }))
             })
             .catch(e => {
                 console.error(e)
@@ -38,7 +40,7 @@ const Fund = (props: {
 
     const handleRemoveBtnClick = () => {
         console.log('handleRemoveBtnClick()')
-        dispatch(actionCreator.removeFund(props.fund.code))
+        dispatch(fundSliceActions.removeFundByCode({code: props.fund.code}))
     }
 
     const handleDetailBtnClick = () => {
@@ -47,9 +49,9 @@ const Fund = (props: {
 
     const handleCheckboxChange = (checked: boolean) => {
         if (checked) {
-            dispatch(actionCreator.pushSelectedFundList(props.fund))
+            dispatch(selectedFundListSliceActions.addFund(props.fund))
         } else {
-            dispatch(actionCreator.removeSelectedFundListByCode(props.fund.code))
+            dispatch(selectedFundListSliceActions.removeFundByCode({code: props.fund.code}))
         }
     }
 
