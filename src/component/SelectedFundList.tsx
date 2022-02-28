@@ -39,7 +39,7 @@ const SelectedFundList = () => {
             <details>
                 <summary>加仓计算</summary>
                 <p>
-                    指标之和：{jerryIndexSum.toFixed(2)}
+                    指数之和：{jerryIndexSum.toFixed(2)}
                 </p>
 
                 <form>
@@ -63,7 +63,7 @@ const SelectedFundList = () => {
                                 代码
                             </th>
                             <th>
-                                投资指标
+                                投资指数
                             </th>
                             <th>
                                 本次加仓金额

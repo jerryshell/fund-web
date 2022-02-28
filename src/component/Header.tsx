@@ -5,7 +5,7 @@ const Header = () => {
         <>
             <nav>
                 <ul>
-                    <li><strong>公募基金投资指标</strong></li>
+                    <li><strong>公募基金投资指数</strong></li>
                 </ul>
                 <ul>
                     <li><a href="https://github.com/jerryshell/fund-web" target="_blank">GitHub</a></li>
