@@ -1,6 +1,6 @@
-import {configureStore} from "@reduxjs/toolkit";
-import {fundListSlice} from "./fundListSlice";
-import {selectedFundListSlice} from "./selectedFundListSlice";
+import {configureStore} from '@reduxjs/toolkit';
+import {fundListSlice} from './fundListSlice';
+import {selectedFundListSlice} from './selectedFundListSlice';
 
 export const store = configureStore({
     reducer: {

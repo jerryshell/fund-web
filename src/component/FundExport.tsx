@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {useAppSelector} from "../redux/hooks";
+import {useAppSelector} from '../redux/hooks';
 
 const FundExport = () => {
     const fundList = useAppSelector((state) => state.fundListSliceReducer.fundList)

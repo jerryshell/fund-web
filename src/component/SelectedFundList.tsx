@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import JerryIndexText from './JerryIndexText'
-import {useAppSelector} from "../redux/hooks";
+import {useAppSelector} from '../redux/hooks';
 
 const SelectedFundList = () => {
     const selectedFundList = useAppSelector((state) => state.selectedFundListSliceReducer.selectedFundList)

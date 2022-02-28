@@ -1,8 +1,8 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit"
-import FundData from "../interfaces/FundData";
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+import FundData from '../interfaces/FundData';
 
 export const fundListSlice = createSlice({
-    name: "fund",
+    name: 'fund',
     initialState: {
         fundList: [
             {

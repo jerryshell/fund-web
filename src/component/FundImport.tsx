@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import {fundSliceActions} from "../redux/fundListSlice";
-import {useAppDispatch} from "../redux/hooks";
+import {fundSliceActions} from '../redux/fundListSlice';
+import {useAppDispatch} from '../redux/hooks';
 
 const FundImport = () => {
     const dispatch = useAppDispatch()

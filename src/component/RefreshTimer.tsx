@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react";
-import fundApi from "../api/fundApi";
-import {fundSliceActions} from "../redux/fundListSlice";
-import {useAppDispatch, useAppSelector} from "../redux/hooks";
+import React, {useEffect, useState} from 'react';
+import fundApi from '../api/fundApi';
+import {fundSliceActions} from '../redux/fundListSlice';
+import {useAppDispatch, useAppSelector} from '../redux/hooks';
 
 const RefreshTimer = () => {
     const dispatch = useAppDispatch()
-    const fundList = useAppSelector((state) => state.selectedFundListSliceReducer.selectedFundList)
+    const fundList = useAppSelector((state) => state.fundListSliceReducer.fundList)
     const [timer, setTimer] = useState(0)
     const [enableFlag, setEnableFlag] = useState(false)
     const [refreshInterval, setRefreshInterval] = useState(3)
@@ -15,14 +15,14 @@ const RefreshTimer = () => {
         setTimer(0)
 
         if (enableFlag) {
-            const timer = setInterval(() => {
-                fundList.forEach(async (fund) => {
-                    fetchJerryIndexByCode(fund.code)
-                        .then(jerryIndex => dispatch(fundSliceActions.setJerryIndexByCode({
-                            jerryIndex,
-                            code: fund.code
-                        })))
-                })
+            const timer = setInterval(async () => {
+                for (const fund of fundList) {
+                    const jerryIndex = await fetchJerryIndexByCode(fund.code)
+                    await dispatch(fundSliceActions.setJerryIndexByCode({
+                        jerryIndex,
+                        code: fund.code
+                    }))
+                }
             }, refreshInterval * 1000)
             setTimer(timer)
         }
@@ -49,15 +49,15 @@ const RefreshTimer = () => {
                     <label>
                         刷新间隔，秒
                         <input
-                            type="number"
-                            min="1"
+                            type='number'
+                            min='1'
                             value={refreshInterval}
                             onChange={e => setRefreshInterval(Number(e.target.value))}
                         />
                     </label>
                     <label>
                         <input
-                            type="checkbox" role="switch" checked={enableFlag}
+                            type='checkbox' role='switch' checked={enableFlag}
                             onChange={e => setEnableFlag(e.target.checked)}
                         />
                         开启

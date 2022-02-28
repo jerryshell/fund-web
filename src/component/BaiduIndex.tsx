@@ -14,8 +14,6 @@ const BaiduIndex = (props: {
     useEffect(() => {
         setShowChartFlag(false)
         fundApi.getBaiduIndexByWord(props.word).then(response => {
-            console.log('getBaiduIndexByWord() word', props.word, 'response.data', response.data)
-
             const success = response.data.success
             if (success) {
                 setBaiduAllIndexList(response.data.data.baiduAllIndexList)
@@ -45,26 +43,26 @@ const BaiduIndex = (props: {
                         <div style={{height: '50vh'}}>
                             <p>180 天平均数：{baiduAllIndexListAvg.toFixed(2)}</p>
                             <p>当前搜索指数：{baiduAllIndexList[baiduAllIndexList.length - 1].toFixed(2)}</p>
-                            <ResponsiveContainer height="80%">
+                            <ResponsiveContainer height='80%'>
                                 <AreaChart
                                     data={data}
                                     width={500}
                                     height={300}
                                 >
-                                    <XAxis dataKey="date" padding={{left: 30, right: 30}}/>
+                                    <XAxis dataKey='date' padding={{left: 30, right: 30}}/>
                                     <YAxis/>
                                     <Tooltip/>
                                     <ReferenceLine
                                         y={baiduAllIndexListAvg}
-                                        stroke="orange"
-                                        strokeDasharray="3 3"
-                                        label="平均数"
+                                        stroke='orange'
+                                        strokeDasharray='3 3'
+                                        label='平均数'
                                     />
                                     <Area
-                                        type="monotone"
-                                        dataKey="value"
-                                        stroke="#8884d8"
-                                        fill="#8884d8"
+                                        type='monotone'
+                                        dataKey='value'
+                                        stroke='#8884d8'
+                                        fill='#8884d8'
                                     />
                                 </AreaChart>
                             </ResponsiveContainer>

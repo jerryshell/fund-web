@@ -1,13 +1,13 @@
 import React from 'react'
 import Fund from './Fund';
-import {useAppSelector} from "../redux/hooks";
+import {useAppSelector} from '../redux/hooks';
 
 const FundTable = () => {
     const fundList = useAppSelector((state) => state.fundListSliceReducer.fundList)
     return (
         <article>
             <figure>
-                <table role="grid">
+                <table role='grid'>
                     <thead>
                     <tr>
                         <th>

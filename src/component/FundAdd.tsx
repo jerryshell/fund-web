@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import {fundSliceActions} from "../redux/fundListSlice";
-import {useAppDispatch} from "../redux/hooks";
+import {fundSliceActions} from '../redux/fundListSlice';
+import {useAppDispatch} from '../redux/hooks';
 
 const FundAdd = () => {
     const dispatch = useAppDispatch()
@@ -39,7 +39,7 @@ const FundAdd = () => {
             <details>
                 <summary>添加基金</summary>
                 <form>
-                    <div className="grid">
+                    <div className='grid'>
                         <label>
                             基金名称
                             <input

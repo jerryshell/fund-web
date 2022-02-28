@@ -1,8 +1,8 @@
-import {createSlice} from "@reduxjs/toolkit"
-import FundData from "../interfaces/FundData"
+import {createSlice} from '@reduxjs/toolkit'
+import FundData from '../interfaces/FundData'
 
 export const selectedFundListSlice = createSlice({
-    name: "selectedFundList",
+    name: 'selectedFundList',
     initialState: {
         selectedFundList: [] as FundData[]
     },
