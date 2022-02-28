@@ -3,16 +3,18 @@ import FundData from "../interfaces/FundData"
 
 export const selectedFundListSlice = createSlice({
     name: "selectedFundList",
-    initialState: [] as FundData[],
+    initialState: {
+        selectedFundList: [] as FundData[]
+    },
     reducers: {
         addFund: (state, action) => {
-            state.push(action.payload)
+            state.selectedFundList.push(action.payload)
         },
         removeFundByCode: (state, action) => {
-            state.splice(state.findIndex(fund => fund.code === action.payload), 1)
+            state.selectedFundList.splice(state.selectedFundList.findIndex(fund => fund.code === action.payload), 1)
         },
         clearFundList: (state) => {
-            state.splice(0, state.length)
+            state.selectedFundList.splice(0, state.selectedFundList.length)
         }
     }
 })

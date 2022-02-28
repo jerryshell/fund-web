@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
 import fundApi from "../api/fundApi";
-import {fundSliceActions} from "../redux/fundSlice";
-import {RootState} from "../redux/store";
+import {fundSliceActions} from "../redux/fundListSlice";
+import {useAppDispatch, useAppSelector} from "../redux/hooks";
 
 const RefreshTimer = () => {
-    const dispatch = useDispatch()
-    const fundList = useSelector((store: RootState) => store.selectedFundListSliceReducer)
+    const dispatch = useAppDispatch()
+    const fundList = useAppSelector((state) => state.selectedFundListSliceReducer.selectedFundList)
     const [timer, setTimer] = useState(0)
     const [enableFlag, setEnableFlag] = useState(false)
     const [refreshInterval, setRefreshInterval] = useState(3)

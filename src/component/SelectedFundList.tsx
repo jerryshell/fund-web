@@ -1,10 +1,9 @@
 import React, {useState} from 'react'
-import {useSelector} from 'react-redux'
 import JerryIndexText from './JerryIndexText'
-import {RootState} from "../redux/store";
+import {useAppSelector} from "../redux/hooks";
 
 const SelectedFundList = () => {
-    const selectedFundList = useSelector((store: RootState) => store.selectedFundListSliceReducer)
+    const selectedFundList = useAppSelector((state) => state.selectedFundListSliceReducer.selectedFundList)
 
     const [totalAmount, setTotalAmount] = useState(0)
 

@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import {useDispatch} from 'react-redux'
-import {fundSliceActions} from "../redux/fundSlice";
+import {fundSliceActions} from "../redux/fundListSlice";
+import {useAppDispatch} from "../redux/hooks";
 
 const FundAdd = () => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const [newFund, setNewFund] = useState({
         name: '',

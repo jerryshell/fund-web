@@ -1,18 +1,17 @@
 import React, {useEffect, useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
 import UpdateButtonIcon from './UpdateButtonIcon'
 import JerryIndexText from './JerryIndexText'
 import fundApi from '../api/fundApi'
-import {fundSliceActions} from "../redux/fundSlice";
+import {fundSliceActions} from "../redux/fundListSlice";
 import {selectedFundListSliceActions} from "../redux/selectedFundListSlice";
-import {RootState} from "../redux/store";
 import FundData from "../interfaces/FundData";
+import {useAppDispatch, useAppSelector} from "../redux/hooks";
 
 const Fund = (props: {
     fund: FundData,
 }) => {
-    const dispatch = useDispatch()
-    const selectedFundList = useSelector((store: RootState) => store.selectedFundListSliceReducer)
+    const dispatch = useAppDispatch()
+    const selectedFundList = useAppSelector((state) => state.selectedFundListSliceReducer.selectedFundList)
 
     const [loading, setLoading] = useState(false)
 
