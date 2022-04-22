@@ -1,6 +1,9 @@
 const Footer = () => {
     return (
-        <p>Created by <a href='https://github.com/jerryshell' target='_blank'>@jerryshell</a></p>
+        <p>Created by <a
+            href="https://github.com/jerryshell"
+            target="_blank"
+        >@jerryshell</a></p>
     )
 }
 

@@ -1,5 +1,5 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import FundData from '../interfaces/FundData';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import FundData from '../interfaces/FundData'
 
 export const fundListSlice = createSlice({
     name: 'fund',
@@ -24,18 +24,18 @@ export const fundListSlice = createSlice({
     },
     reducers: {
         setFundList: (state, action: PayloadAction<{ fundList: FundData[] }>) => {
-            state.fundList = action.payload.fundList;
+            state.fundList = action.payload.fundList
         },
         addFund: (state, action: PayloadAction<{ fund: FundData }>) => {
-            state.fundList.push(action.payload.fund);
+            state.fundList.push(action.payload.fund)
         },
         removeFundByCode: (state, action: PayloadAction<{ code: string }>) => {
-            state.fundList.splice(state.fundList.findIndex(fund => fund.code === action.payload.code), 1);
+            state.fundList.splice(state.fundList.findIndex(fund => fund.code === action.payload.code), 1)
         },
         setJerryIndexByCode: (state, action: PayloadAction<{ code: string, jerryIndex: number }>) => {
-            const fund = state.fundList.find(fund => fund.code === action.payload.code);
+            const fund = state.fundList.find(fund => fund.code === action.payload.code)
             if (fund) {
-                fund.jerryIndex = action.payload.jerryIndex;
+                fund.jerryIndex = action.payload.jerryIndex
             }
         },
     },

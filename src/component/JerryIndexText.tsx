@@ -14,7 +14,7 @@ const JerryIndexText = (props: { jerryIndex: number }) => {
     }
 
     return (
-        <span className={jerryIndexClassName}>{props.jerryIndex}</span>
+        <span className={ jerryIndexClassName }>{ props.jerryIndex }</span>
     )
 }
 

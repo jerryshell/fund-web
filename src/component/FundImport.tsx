@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import {fundSliceActions} from '../redux/fundListSlice';
-import {useAppDispatch} from '../redux/hooks';
+import React, { useState } from 'react'
+import { fundSliceActions } from '../redux/fundListSlice'
+import { useAppDispatch } from '../redux/hooks'
 
 const FundImport = () => {
     const dispatch = useAppDispatch()
@@ -14,7 +14,7 @@ const FundImport = () => {
     const handleImportBtnClick = () => {
         try {
             const newFundList = JSON.parse(fundListStr)
-            dispatch(fundSliceActions.setFundList({fundList: newFundList}))
+            dispatch(fundSliceActions.setFundList({ fundList: newFundList }))
             setImportResult('✅')
         } catch (e) {
             console.error(e)
@@ -31,10 +31,10 @@ const FundImport = () => {
             <details>
                 <summary>数据导入</summary>
                 <textarea
-                    value={fundListStr}
-                    onChange={(e) => handleFundListStrChange(e.target.value)}
+                    value={ fundListStr }
+                    onChange={ (e) => handleFundListStrChange(e.target.value) }
                 />
-                <button onClick={handleImportBtnClick}>{importResult} 数据导入</button>
+                <button onClick={ handleImportBtnClick }>{ importResult } 数据导入</button>
             </details>
         </article>
     )

@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import {fundSliceActions} from '../redux/fundListSlice';
-import {useAppDispatch} from '../redux/hooks';
+import React, { useState } from 'react'
+import { fundSliceActions } from '../redux/fundListSlice'
+import { useAppDispatch } from '../redux/hooks'
 
 const FundAdd = () => {
     const dispatch = useAppDispatch()
@@ -26,7 +26,7 @@ const FundAdd = () => {
     }
 
     const handleAddBtnClick = () => {
-        dispatch(fundSliceActions.addFund({fund: {...newFund}}))
+        dispatch(fundSliceActions.addFund({ fund: { ...newFund } }))
         setNewFund({
             name: '',
             code: '',
@@ -39,28 +39,28 @@ const FundAdd = () => {
             <details>
                 <summary>添加基金</summary>
                 <form>
-                    <div className='grid'>
+                    <div className="grid">
                         <label>
                             基金名称
                             <input
-                                type={'text'}
-                                placeholder={'基金名称'}
-                                value={newFund.name}
-                                onChange={(e) => handleNewFundNameChange(e.target.value)}
+                                type={ 'text' }
+                                placeholder={ '基金名称' }
+                                value={ newFund.name }
+                                onChange={ (e) => handleNewFundNameChange(e.target.value) }
                             />
                         </label>
                         <label>
                             基金代码
                             <input
-                                type={'text'}
-                                placeholder={'基金代码'}
-                                value={newFund.code}
-                                onChange={(e) => handleNewFundCodeChange(e.target.value)}
+                                type={ 'text' }
+                                placeholder={ '基金代码' }
+                                value={ newFund.code }
+                                onChange={ (e) => handleNewFundCodeChange(e.target.value) }
                             />
                         </label>
                     </div>
                 </form>
-                <button onClick={handleAddBtnClick}>添加</button>
+                <button onClick={ handleAddBtnClick }>添加</button>
             </details>
         </article>
     )

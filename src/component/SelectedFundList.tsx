@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import JerryIndexText from './JerryIndexText'
-import {useAppSelector} from '../redux/hooks';
+import { useAppSelector } from '../redux/hooks'
 
 const SelectedFundList = () => {
     const selectedFundList = useAppSelector((state) => state.selectedFundListSliceReducer.selectedFundList)
@@ -16,18 +16,18 @@ const SelectedFundList = () => {
 
     const tbody = selectedFundList.map(item => {
         return (
-            <tr key={item.code}>
+            <tr key={ item.code }>
                 <td>
-                    {item.name}
+                    { item.name }
                 </td>
                 <td>
-                    {item.code}
+                    { item.code }
                 </td>
                 <td>
-                    <JerryIndexText jerryIndex={item.jerryIndex}/>
+                    <JerryIndexText jerryIndex={ item.jerryIndex }/>
                 </td>
                 <td>
-                    {(totalAmount * item.jerryIndex / jerryIndexSum).toFixed(2)}
+                    { (totalAmount * item.jerryIndex / jerryIndexSum).toFixed(2) }
                 </td>
             </tr>
         )
@@ -38,7 +38,7 @@ const SelectedFundList = () => {
             <details>
                 <summary>加仓计算</summary>
                 <p>
-                    指数之和：{jerryIndexSum.toFixed(2)}
+                    指数之和：{ jerryIndexSum.toFixed(2) }
                 </p>
 
                 <form>
@@ -46,8 +46,8 @@ const SelectedFundList = () => {
                         本次加仓总金额
                     </label>
                     <input
-                        type={'number'}
-                        onChange={e => setTotalAmount(Number(e.target.value))}
+                        type={ 'number' }
+                        onChange={ e => setTotalAmount(Number(e.target.value)) }
                     />
                 </form>
 
@@ -70,7 +70,7 @@ const SelectedFundList = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        {tbody}
+                        { tbody }
                         </tbody>
                     </table>
                 </figure>

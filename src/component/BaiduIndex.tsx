@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import fundApi from '../api/fundApi'
-import {Area, AreaChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis} from 'recharts'
+import { Area, AreaChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 const BaiduIndex = (props: {
     open: boolean,
@@ -35,34 +35,37 @@ const BaiduIndex = (props: {
 
     return (
         <article>
-            <details open={props.open}>
-                <summary>百度搜索指数：{props.word}</summary>
+            <details open={ props.open }>
+                <summary>百度搜索指数：{ props.word }</summary>
                 {
                     showChartFlag
                         ?
-                        <div style={{height: '50vh'}}>
-                            <p>180 天平均数：{baiduAllIndexListAvg.toFixed(2)}</p>
-                            <p>当前搜索指数：{baiduAllIndexList[baiduAllIndexList.length - 1].toFixed(2)}</p>
-                            <ResponsiveContainer height='80%'>
+                        <div style={ { height: '50vh' } }>
+                            <p>180 天平均数：{ baiduAllIndexListAvg.toFixed(2) }</p>
+                            <p>当前搜索指数：{ baiduAllIndexList[baiduAllIndexList.length - 1].toFixed(2) }</p>
+                            <ResponsiveContainer height="80%">
                                 <AreaChart
-                                    data={data}
-                                    width={500}
-                                    height={300}
+                                    data={ data }
+                                    width={ 500 }
+                                    height={ 300 }
                                 >
-                                    <XAxis dataKey='date' padding={{left: 30, right: 30}}/>
+                                    <XAxis
+                                        dataKey="date"
+                                        padding={ { left: 30, right: 30 } }
+                                    />
                                     <YAxis/>
                                     <Tooltip/>
                                     <ReferenceLine
-                                        y={baiduAllIndexListAvg}
-                                        stroke='orange'
-                                        strokeDasharray='3 3'
-                                        label='平均数'
+                                        y={ baiduAllIndexListAvg }
+                                        stroke="orange"
+                                        strokeDasharray="3 3"
+                                        label="平均数"
                                     />
                                     <Area
-                                        type='monotone'
-                                        dataKey='value'
-                                        stroke='#8884d8'
-                                        fill='#8884d8'
+                                        type="monotone"
+                                        dataKey="value"
+                                        stroke="#8884d8"
+                                        fill="#8884d8"
                                     />
                                 </AreaChart>
                             </ResponsiveContainer>

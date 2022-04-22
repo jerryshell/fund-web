@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import fundApi from '../api/fundApi';
-import {fundSliceActions} from '../redux/fundListSlice';
-import {useAppDispatch, useAppSelector} from '../redux/hooks';
+import React, { useEffect, useState } from 'react'
+import fundApi from '../api/fundApi'
+import { fundSliceActions } from '../redux/fundListSlice'
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
 
 const RefreshTimer = () => {
     const dispatch = useAppDispatch()
@@ -49,16 +49,18 @@ const RefreshTimer = () => {
                     <label>
                         刷新间隔，秒
                         <input
-                            type='number'
-                            min='1'
-                            value={refreshInterval}
-                            onChange={e => setRefreshInterval(Number(e.target.value))}
+                            type="number"
+                            min="1"
+                            value={ refreshInterval }
+                            onChange={ e => setRefreshInterval(Number(e.target.value)) }
                         />
                     </label>
                     <label>
                         <input
-                            type='checkbox' role='switch' checked={enableFlag}
-                            onChange={e => setEnableFlag(e.target.checked)}
+                            type="checkbox"
+                            role="switch"
+                            checked={ enableFlag }
+                            onChange={ e => setEnableFlag(e.target.checked) }
                         />
                         开启
                     </label>

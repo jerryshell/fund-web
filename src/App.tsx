@@ -1,5 +1,5 @@
 import './App.css'
-import React, {Suspense} from 'react'
+import React, { Suspense } from 'react'
 
 const Header = React.lazy(() => import('./component/Header'))
 const BaiduIndex = React.lazy(() => import('./component/BaiduIndex'))
@@ -13,11 +13,17 @@ const Footer = React.lazy(() => import('./component/Footer'))
 
 const App = () => {
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={ <div>Loading...</div> }>
             <main className="container">
                 <Header/>
-                <BaiduIndex open={true} word={'基金'}/>
-                <BaiduIndex open={true} word={'股票'}/>
+                <BaiduIndex
+                    open={ true }
+                    word={ '基金' }
+                />
+                <BaiduIndex
+                    open={ true }
+                    word={ '股票' }
+                />
                 <FundAdd/>
                 <FundExport/>
                 <FundImport/>

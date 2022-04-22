@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {useAppSelector} from '../redux/hooks';
+import React, { useState } from 'react'
+import { useAppSelector } from '../redux/hooks'
 
 const FundExport = () => {
     const fundList = useAppSelector((state) => state.fundListSliceReducer.fundList)
@@ -25,8 +25,8 @@ const FundExport = () => {
         <article>
             <details>
                 <summary>数据导出</summary>
-                <code>{fundListStr}</code>
-                <button onClick={handleCopyBtnClick}>{copyResult} 复制到剪切板</button>
+                <code>{ fundListStr }</code>
+                <button onClick={ handleCopyBtnClick }>{ copyResult } 复制到剪切板</button>
             </details>
         </article>
     )
